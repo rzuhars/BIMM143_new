@@ -1,0 +1,117 @@
+---
+title: "Class 15- Introduction to Git and GitHub"
+author: "Renee Zuhars (PID: A17329856)"
+format: html
+toc: TRUE
+---
+
+# 1. Background
+
+The goal of today's hands on session is to practice a version control workflow with GitHub and Rstudio. This will streamline working with our most important collaborator: Future You. 
+
+**In this session we will interface with GitHub from our local computers using RStudio.** (There are many other ways to interact with GitHub, you have the largest suite of options by interfacing with the command line. Most common things you can do, though, can be done in RStudio. )
+
+Summary of today:
+
+1. Create a respository on Github.com
+
+2. Clone locally using Rstudio sync local to remote: pull, stage, commit, push
+
+3. Explore github.com files, commit history, README
+
+4. Get exposure to project-oriented workflows in action
+
+
+# 2. Why should we use GitHub?
+
+GitHub helps make coding collaborative and social while also providing huge benefits to organization, archiving, and being able to find your files easily when you need them.
+
+One of the most compelling reasons is that it ends (or nearly ends) the horror of keeping track of versions (of files that you have renamed many times). 
+
+**GitHub’s job is to track who made any changes and when** (so no need to save a copy with your name or date at the end), and it also requires that you write something human-readable that will be a breadcrumb for you in the future. It is designed to be easy to compare versions, and you can easily revert to previous versions.
+
+GitHub, especially in combination with RStudio, is game-changing for publishing and distributing. You can — and we will — publish and share files openly on the internet.
+
+
+# 3. What is GitHub? And Git?
+
+**Git:** (a program that you install on your computer), version control software that tracks changes to your files over time.
+
+**GitHub:** (a website: a social media platform for your git-versioned files), stores all your versioned files as an archive, but also allows you to interact with other people's files. 
+
+  - Has management tools for the social side of software projects. 
+  
+  - Has many nice features to be able to visualize differences between images, for rendering and diffing up map data files, for rendering text data files, and for tracking changes in text. 
+
+  - Was developed for software development: much of the functionality and terminology isn't necessarily the right place for new R users to begin. 
+
+**We will be learning and practicing GitHub’s features and terminology on a “need to know basis” as we start managing our projects with GitHub.**
+
+
+# 4. Connecting RStudio to GitHub
+
+I signed up for a free GitHub account under the username *rzuhars* . 
+
+### Create a Personal Access Token (PAT) on GitHub
+
+Once you’ve signed up, you’ll need to enable RStudio to talk to GitHub. The best way to connect RStudio and GitHub is using your username and a Personal Access Token (PAT).
+
+First, I typed `install.packages("usethis")` into the console. 
+
+To generate a personal access token:
+
+```{r}
+library(usethis)
+
+create_github_token()
+```
+
+### Store PAT to connect RStudio and GitHub
+
+Now that the Personal Access Token has been created, we need to store it so that RStudio can access it and know to connect to your GitHub account. The `gitcreds_set()` function from the "gitcreds" package will help you here.
+
+I typed `install.packages("gitcreds")` into the console. 
+
+```{r}
+library(gitcreds)
+
+gitcreds_set()
+```
+
+Username = github username
+Password = Personal Access Token
+
+RStudio and GitHub are connected!
+
+# 5. Create a GitHub Repository
+
+Let’s get started syncing our work to GitHub by going back to the main GitHub website <https://githhub.com/rzuhars> and going to our user profile --> repository tab. 
+
+Repositories are the main “unit” of GitHub: they are what GitHub tracks. They are essentially project-level folders that will contain everything associated with a project. It’s where we’ll start too.
+
+We create a new repository (called a “repo”) by clicking “New repository.”
+
+We will choose a name that matches our course code i.e. bimm143 or bggn213.
+
+Also, add a brief description, make it public, create a README file, and create your repo!
+
+**A new public repository was created, called BIMM143**
+
+Great! So now we have our new repository that exists in the Cloud. Let’s get it established locally on our computers: this is called *“cloning”.*
+
+
+# 6. Clone your repository using RStudio
+
+Let’s clone this repo to our local computer using RStudio. Unlike downloading, cloning keeps all the version control and user information bundled with the files.
+
+### Copy the repo address
+
+First, copy the web address of the repository you want to clone. We will use HTTPS.
+
+URL: https://github.com/rzuhars/BIMM143.git
+
+# 7. RStudio: New Project
+
+
+
+
