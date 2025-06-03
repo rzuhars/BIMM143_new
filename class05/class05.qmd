@@ -1,0 +1,232 @@
+---
+title: "Class05: Data Visualization with ggplot"
+author: "Renee Zuhars (PID: A17329856)"
+format: pdf
+toc: true
+---
+
+# Background: *comparing "base" and ggplot2*
+
+There are many graphics systems available in R. These include "base" R and tons of add on packages, like **ggplot2**. 
+
+Let's compare "base" and **ggplot** briefly. We can use some example data that is built-in with R called `cars`:
+
+```{r}
+head(cars)
+```
+
+In base R I can just call `plot()`
+
+```{r}
+plot(cars)
+```
+
+### How can we do this with **ggplot2**?
+
+First, we need to install the package. We do this with `install.packages("ggplot2")`. I only need to do this once and then it will be available on my computer so I don't need to re-install it. 
+
+> Key point: I only install packages in the R console, not within quarto docs or R scripts. 
+
+Before I use any add on package, I must load it up with a call to `library()`
+
+```{r}
+library(ggplot2)
+ggplot(cars)
+```
+This doesn't yield a very interesting plot.
+
+Every ggplot has at least 3 things (called layers). 
+
+- the **data** (in our case, `cars`)
+- the **aes**thetics (how the data map to the plot)
+- the **geom**etries that determine how the plot is drawn (lines, points, columns, etc.)
+
+```{r}
+ggplot(cars) + 
+  aes(x=speed, y=dist) +
+  geom_point()
+```
+There we go!
+
+For "simple" plots, ggplot is much more verbose than base R, as it involves more typing. But, the defaults are nicer and for complicated plots it becomes much more efficient and structured. 
+
+> Q. Add a line to show the relationship of speed to stopping distance (i.e. add another "layer"). 
+
+```{r}
+p <- ggplot(cars) + 
+  aes(x=speed, y=dist) +
+  geom_point() +
+  geom_smooth(se=FALSE, method="lm")
+
+```
+
+*note*: to save the plot, we assign it to "p". 
+
+> Q. Add a title and subtitle to the plot. 
+
+I can always save any ggplot object (i.e. plot) and then use it later for adding more layers:
+```{r}
+p + labs(title = "Cars: my first ggplot",
+         subtitle = "Speed versus Distance of old cars",
+         caption = "BIMM 143",
+         x = "Speed (MPG)",
+         y = "Stopping distance (ft)") +
+  theme_bw()
+
+```
+
+## Gene expression plot
+
+Read input data into R
+
+```{r}
+url <- "https://bioboot.github.io/bimm143_S20/class-material/up_down_expression.txt"
+genes <- read.delim(url)
+head(genes)
+```
+
+> Q. How many genes are in this wee database?
+
+```{r}
+nrow(genes)
+```
+
+> Q. How many columns are there?
+
+```{r}
+ncol(genes)
+```
+
+> Q. What are the column names?
+
+```{r}
+colnames(genes)
+```
+
+> Q. How many "up" and "down" regulated genes are there? 
+
+```{r}
+table(genes$"State")
+```
+
+### Custom color plot
+
+> Q. Make a first plot of this data
+
+```{r}
+ggplot(genes) +
+  aes(x=Condition1, y=Condition2, col=State) + 
+  scale_color_manual(values=c("turquoise", "gray", "violet")) + 
+  geom_point() +
+  labs(title="Gene expression changes upon drug treatment", x="Control (no drug)", y="Drug Treatment") + 
+  theme_bw()
+```
+
+# Using different geoms
+
+Let's plot some aspects of the in-built `mtcars` dataset
+
+```{r}
+head(mtcars)
+```
+
+> Q. Scatter plot of `mpg` vs `disp`
+
+```{r}
+p1 <- ggplot(mtcars) + 
+  aes(x=mpg, y=disp) +
+  geom_point() 
+```
+
+> Q. Boxplot of `gear` vs `disp`
+
+```{r}
+p2 <- ggplot(mtcars) + 
+  aes(x=gear, y=disp, group=gear) + 
+  geom_boxplot()
+```
+
+> Q. Barplot of `carb`
+
+```{r}
+p3 <- ggplot(mtcars) + 
+  aes(carb) + 
+  geom_bar()
+```
+
+> Q. Smooth of `disp` vs `qsec`
+
+```{r}
+p4 <- ggplot(mtcars) + 
+  aes(x=disp, y=qsec) +
+  geom_smooth()
+```
+
+### Combining plots into a figure
+I want to combine all these plots into one figure with multiple panels. 
+
+We can use the **patchwork** package to do this. 
+
+> Note: (install.packages("patchwork") was used to install this package in the R console.)
+
+```{r}
+library(patchwork)
+
+(p1 / p2 | p3 / p4)
+```
+
+```{r}
+ggsave(filename="myplot.png", width=10, height=10)
+```
+
+# Faceting
+
+```{r}
+#File location online
+url <- "https://raw.githubusercontent.com/jennybc/gapminder/master/inst/extdata/gapminder.tsv"
+
+gapminder <- read.delim(url)
+```
+
+And a wee peek
+```{r}
+head(gapminder, 10)
+```
+
+> Q. How many countries are in this dataset?
+
+```{r}
+length(table(gapminder$country))
+```
+
+> Q. Plot gdpPercap vs lifeExp color by continent
+
+```{r}
+ggplot(gapminder) + 
+  aes(x=gdpPercap, y=lifeExp, color=continent, size=pop) + 
+  geom_point(alpha=0.3) +
+  facet_wrap(~continent) +
+  theme_bw()
+```
+
+
+
+# Renee's notes on Quarto- *the basics* 
+
+1. The heading above is a level two heading- preceded by two pound signs and a space. (A level 1 heading is larger and preceded by 1 pound sign and a space). 
+
+2. To put font in italics, *you surround it by two asterisks*
+
+3. To put font in bold, **you surround it by four asterisks**
+
+## How to run code
+
+You can embed code by creating code chunks:
+
+```{r}
+"code chunk" <- (1:10)
+```
+
+To create a chunk, you can add *three back-ticks* (```), then the type of code you are using *in mustache brackets* ({}).
+
+OR you can hit option + command + i (for mac)

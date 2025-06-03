@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Renee Zuhars (PID A17329856)">
+
+<title>Final ‘Find a Gene’ Project</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="geneproject_final_files/libs/clipboard/clipboard.min.js"></script>
+<script src="geneproject_final_files/libs/quarto-html/quarto.js"></script>
+<script src="geneproject_final_files/libs/quarto-html/popper.min.js"></script>
+<script src="geneproject_final_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="geneproject_final_files/libs/quarto-html/anchor.min.js"></script>
+<link href="geneproject_final_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="geneproject_final_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="geneproject_final_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="geneproject_final_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="geneproject_final_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Final ‘Find a Gene’ Project</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Renee Zuhars (PID A17329856) </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="question-1" class="level1">
+<h1>Question 1</h1>
+<p>Beginning my search, I knew I wanted to limit my organism to some kind of fungus, because they are very understudied and I think their diversity and versatility are fascinating!</p>
+<p>I decided to narrow my search to those proteins that help the fungus <em>Ophiocordyceps Unilateralis</em> “zombify” a host insect by taking over the hosts’ neurological systems, eventually killing the host.</p>
+<p><strong>protein name</strong>: serine/threonine-protein kinase MAK, partial</p>
+<p><strong>species</strong>: <em>Ophiocordyceps Unilateralis</em></p>
+<p><strong>accession number</strong>: ADI72911.1</p>
+<p><strong>function</strong>: The role of MAK-like kinases in this species is to induce behavioral changes in the host by interfering with Mitogen- Activated Protein Kinase signaling pathways. (ChatGPT)</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="ophiocordyceps.png" style="width:60.0%" class="figure-img"></p>
+<figcaption>Ophiocordyceps Unilaterialis</figcaption>
+</figure>
+</div>
+</section>
+<section id="question-2" class="level1">
+<h1>Question 2</h1>
+<p>Attempting to find a homologous protein:</p>
+<p><strong>blast method:</strong> NCBI tblastn</p>
+<p><strong>database:</strong> est</p>
+<p><strong>limits/restrictions</strong>: none</p>
+<p>My BLAST results were as followed:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="original%20protein%20blast%20results.png" class="img-fluid figure-img"></p>
+<figcaption>BLAST results, original query</figcaption>
+</figure>
+</div>
+<p><strong>Alignment of choice:</strong> MgA0137f MgA Library Zymoseptoria tritici cDNA clone MgA0137 5’, mRNA sequence</p>
+<p><strong>E Value:</strong> 3e-46</p>
+<p><strong>Percent Identity:</strong> 59.84%</p>
+<p><strong>Percent Coverage:</strong> 91%</p>
+</section>
+<section id="question-3" class="level1">
+<h1>Question 3</h1>
+<p>Here is some information about the homolog I am looking into:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="zymoseptoria%20tritici.png" style="width:80.0%" class="figure-img"></p>
+<figcaption>Zymoseptoria Triciti</figcaption>
+</figure>
+</div>
+<p><strong>Name</strong>: MgA0137f MgA Library Zymoseptoria tritici cDNA clone MgA0137 5’, mRNA sequence</p>
+<p><strong>Species Derived from</strong>: Zymoseptoria tritici : this is a pathogenic fungus that attacks wheat plants. It is resistant to multiple fungicides, and causes septoria leaf blotch.</p>
+<p><strong>FASTA format sequence, translated using EMBOSS Transeq</strong>:</p>
+<p>AW180074.1_1 MgA0137f MgA Library Zymoseptoria tritici cDNA clone MgA0137 5’, mRNA sequence</p>
+<p>RQLSVNSQGNHYAEIHRQEAERALVGASALKSPTGSQRESFFSHLRKRARRLSGRNSGVI TPSMDAMETSAGCVPWAANKQTTFDTHSIASAAADPSSDPNFAELDRALQSVRYSLDAAA NATQQARKPTNRVVEQPSLKRHHSLPHGVRHKTNPTTVYHDEH*STPRAADTRPPTKKKN SRRSHELSASRRTAFSX</p>
+<p>DNYQSTHRAITTPKFTGRKLSVLWLAQALSSHRLAAKEKASSLICARGREDFPAATQVSS HLQWMLWKPALGAFLGLLTNKPPSTPTRSRLPQPIRHQTPISLSWIVHCKVYDTAWMPPR TRLNKLGSLRTALSNHHSVTTRFLTALDTRPTQPPYTTTSTEARHEQPIQDPRRRRRI LDEVMNSAHLAARRSR</p>
+<p>TIISQLTGQSLRRNSPAGSACSGWRKRSQVTDWQPKRKLLLSSAQEGEKTFRPQLRCHH TFNGCYGNQRWVRSLGCQTNHLRHPLDRVCRSRSVIRPQFRAGSCTAKCTIQPGCRRE RDSTSEAYEPRSATIIEASPLASSRRTQDQPNHRIPRRALKHATSSRYKTPDEEEEF STKSTQRISPHGVLX</p>
+<p>RERRAARCAEFMTSSRILLLRRGSCIGCSWRASVLVVVYGGWVGLVSNAVRKRVVTLQ*W LLNYAVRRLPSLLSRVRGGIQAVSYTLQCTIQLSEIGV**RIGCGRRDRVGVEGGLFVSS PRNAPSAGFHSIHRCDDTVAAGKSSRPLAQMREEAFSLAASRLESACANQSTLSFLP VNFGVVIALVDLS</p>
+<p>SRTPCGEMRVHDFVENSSSSSGVLYRLLVACFSARRGIRWLGWSCVRREEASGDASMM VAQLRGSASLVESRSRRHPGCIVHFAVHDPAQRNWGLMTDRLRQTRSSGCRRWFVCQ PKERTQRWFPHPLKVHLSCGRKVFSPSCADERRSFLFGCQSVTERLRQPEHAQLPA GEFRRSDCPVSLIIVX</p>
+<p>ENAVRRDALSSLRREFFFFVGGLVSAARGVLQCSSWYTVVGLVLCLTPGSEWRFNDG CSTTRFVGFLACVAFAAASRLYRTLCSARSSSAKLGSDDGSAAADAIEWVSKVVCLLAA QGTHPALVSIASIEGVMTPELRPESLLALLRR*EKKLSLWLPVGDLRALAPTRARSASCR ISALPCELTDNCR</p>
+</section>
+<section id="question-4" class="level1">
+<h1>Question 4</h1>
+<p>To determine if this protein is novel:</p>
+<p>I used NCBI blastp, in the nr database.</p>
+<p>My results were as followed:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="novel%20protein%20blast%20results.png" style="width:80.0%" class="figure-img"></p>
+<figcaption>BLAST results, novel query</figcaption>
+</figure>
+</div>
+<p><strong>There is no match with 100% identity!</strong></p>
+</section>
+<section id="question-5" class="level1">
+<h1>Question 5</h1>
+<p>I will use MUSCLE at EBI to produce a multiple sequence alignment of the following proteins:</p>
+<p><em>My novel protein</em></p>
+<p><code>&gt;</code>Zymoseptoria unknown protein (novel protein from BLAST results)</p>
+<p><em>My original sequence for ophiocordyceps:</em></p>
+<p><code>&gt;</code>ADI72911.1 serine/threonine-protein kinase MAK, partial [Ophiocordyceps unilateralis]</p>
+<p><strong>Other proteins of interest, based on BLAST results of original and novel proteins:</strong></p>
+<p><em>1.</em> <code>&gt;</code>KAK4508075.1 hypothetical protein PRZ48_001812 [Zasmidium cellare]</p>
+<p><em>2.</em> <code>&gt;</code>XP_047755397.1 Sporulation protein kinase pit1 [Fulvia fulva]</p>
+<p><em>3.</em> <code>&gt;</code>KJY01546.1 CMGC/RCK/MAK protein kinase [Zymoseptoria brevis]</p>
+<p><em>4.</em> <code>&gt;</code>KAK4981489.1 hypothetical protein LTR28_003093, partial [Elasticomyces elasticus]</p>
+<p><em>5. </em> <code>&gt;</code>KAI5369935.1 putative serine/threonine-protein kinase, active [Septoria linicola]</p>
+<section id="alignment" class="level3">
+<h3 class="anchored" data-anchor-id="alignment">Alignment</h3>
+<p><strong>Here is the alignment I obtained after running the above 7 proteins through MUSCLE at EBI, displayed in a code chunk because PDF formatting was giving me issues</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="st">"Zymoseptoria_unknown_protein</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="st">RQLSVNSQGNHYAEIHRQEAERALVGASALKSPTGSQRESFFSHLRKRARRLSGRNSGVI</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="st">TPSMDAMETSAGCVPWAANKQTTFDTHSIASAAADPSSDPNFAELDRALQSVRYSLDAAA</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="st">NATQQARKPTNRVVEQPSLKR-HHSLPHGVRHKTNPTTVYHDEHSTPRAADTRPPTKKKN</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="st">SRRSHELSASRRTAFSXDNYQSTHRAITTPKFTGRKLSVLWLAQALSSHRLAAKEKASSL</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="st">ICARGREDFPAATQVSSHLQWMLWKPALGAFLGLLTNKPPSTPTRSRLPQPIRHQTPISL</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="st">SWIVHCKVYDTAWMPPRTRLNKLGSLRTALSNHHSVTTRFLTALDTRPTQPPYTTTSTEA</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="st">RHEQPIQDPRRRRRILDEVMNSAHLAARRSRTIISQLTGQSLRRNSPAGSACSGWRKRSQ</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="st">VTDWQPKRKLLLSSAQEGEKTFRPQLRCHHTFNGCYGNQRWVR-SLGCQTNHLRHPLDRV</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="st">CRSRSVIRPQ-FRAGSCTAKCTIQPGCRRERDSTSEAYEPRSATIIEASPLASSRRTQDQ</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="st">PNHRIPRRALKHATSSRYKTPDEEEEFSTKSTQRISPHGVLXRERRAARCAEFMTSSRIL</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="st">LLRRGSCIGCSWRASVLVVVYGGWVGLVSNAVRKRVVTLQWLLNYAVRRLPSLLSRVRGG</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="st">IQAVSYTLQCTIQLSEIGVRIGCGRRDRVGVEGGLFVSSPRNAPSAGFHSIHRCDDTVAA</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="st">GKSSRPLAQMREEAFSLAASRLESACANQSTLSFLPVNFGVVIALVDLSSRTPCGEMRVH</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="st">DFVENSSSSSGVLYRLLVACFSARRGIRWLGWSCVRREEASGDASMMVAQLRGSASLVES</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="st">RSRRHPGCIVHFAVHDPAQRNWGLMTDRLRQTRSSGCRRWFVCQPKERTQRWFPHPLKVH</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="st">LSCGRKVFSPSCADERRSFLFGCQSVTERLRQPEHAQLPAGEFRRSDCPVSLIIVXENAV</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="st">RRDALSSLRREFFFFVGGLVSAARGVLQCSSWYTVVGLVLCLTPGSEWRFNDGCSTTRFV</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="st">GFLACVAFAAASRLYRTLCSARSSSAKLGSDDGSAAADAIEWVSKV--VCLLAAQGTHPA</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="st">LVSIASIEGVMTPELRPESLLALLRREKKLSLWLPVGDLRALAPTRARSASCRISALPCE</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="st">LTDNCR</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="st">Elasticomyces_elasticus_unknown_protein</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="st">------------------------------------------------------------</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="st">------------------------------------------------------------</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="st">------------------------------------------------------------</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="st">------------------------------------------------------------</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="st">------------------------------------------------------------</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="st">------------------------------------------------------------</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="st">------------------------------------------------------------</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="st">------------------------------------------------------------</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="st">------------------------------------------------------------</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="st">--------------MRRSDAEE---KASRKIGRQLS------------------------</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="st">-----------------VASHGNHYADAHRHEAEQALN----------------------</span></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="st">-----------------------------GRNG---LASPTSSQRGSFFAHLRKRARRLS</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a><span class="st">GRNQAPVSPSVDD---------------------IEASAG-------------CAP----</span></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a><span class="st">-------------------------------WAS-NRQSMAIE-----------------</span></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a><span class="st">-----SLAITTHATDPSSDPNFAELDRALQNVRYSLDAGSYSNNNVQK------PVQKV-</span></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a><span class="st">---------PSNPMLKR-----------------HHSLPFGQDERISPVPAVNGPISSRT</span></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a><span class="st">RRS------------------------------------VRQAPHPGHRYETPDEEEELL</span></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a><span class="st">DEVLASAHRAARRLDRYIQQDNSPLPSVTSQQERARPPVQQVTSDP--GCFVPYLTPSPS</span></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a><span class="st">KDRNG-------------------------------------------------------</span></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a><span class="st">------</span></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a><span class="st">Zymoseptoria_brevis_protein_kinase</span></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a><span class="st">MTVAYENMSYRGWSSGSHSAAVCLEDKFEIIKDIGDGSFGSVTLGRTRSAGAHLVRRNTL</span></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a><span class="st">VAIKTMKKTFENFAQCMELREVIFLKTLPSHPHLVPAYDIFLDPLSKKLHIAMEHMDGNL</span></span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a><span class="st">YQLMKARD--HKPLDESSVKSILFQILEGLEHIHDHSFFHRDIKPENILVSTSAHDTGSA</span></span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a><span class="st">FKRYSSLVTPPSTPPAYT------------------IKIADFGLARETHSRVPYTTYVST</span></span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a><span class="st">RWYRAPEVLLRAGEYSAPVD--IW--AIGAMAVEIATLKPLFPGGNEVDQVWR-------</span></span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a><span class="st">--VCEVMGSPGAWVNKHGQKVGGGEWKEGIKLAQKLGFSF--------------------</span></span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a><span class="st">--------PKMAPHSLETVLPSPQWPASLANFITWCLMWDPKVRPTSRQALEHEYF-QNA</span></span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a><span class="st">LDPLAPKSS-----SRAQSRASVRHD-----SDLPTKTASWFRKSLGPRDA-APPAVPQH</span></span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a><span class="st">NSEPLATQPMPDPMESSP------APKVKPMAAKRATWAHG-NANAAPMPILPSIR----</span></span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a><span class="st">PISPLPDAITAHANARHIDQPPQEVSPSKKIGRQLS------------------------</span></span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a><span class="st">-----------------VNSQGNHYAEIHRQEAERALV----------------------</span></span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a><span class="st">-----------------------------GASA---LKSPTGSQRESFFSHLRKRARRLS</span></span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a><span class="st">GRNSGVITPSMDA---------------------METNAG-------------CVP----</span></span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a><span class="st">-------------------------------WAA-NKQPVF-D-----------------</span></span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a><span class="st">-----THSVASAAADPSSDPNFAELDRALQSVRYSLDAAANATQQARK------PTNRV-</span></span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a><span class="st">---------VSNPSLKR-----------------HHSLPHGVDDKTQ-------ANHRIP</span></span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a><span class="st">RRA------------------------------------LKHATSS--RYETPDEEEELL</span></span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a><span class="st">DEVMTSAHLAARRL---------------DNEQLSRPPLPHVISEPVTVYTAPYLTPSHS</span></span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a><span class="st">KDQMSLDYVTQGPAPTNAVEIPPRRQPSNSKNNPQWPTPPYDENDWAAAAAASIFATQRA</span></span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a><span class="st">YQ----</span></span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a><span class="st">Ophiocordyceps_unilateralis_sthr_protein_kinase</span></span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a><span class="st">------------------------------------------------------------</span></span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a><span class="st">------------------------------------------------------------</span></span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a><span class="st">------------------------------------------------------------</span></span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a><span class="st">------------------------------------------------------------</span></span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a><span class="st">-----------------------W------------------------------------</span></span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a><span class="st">------------------------------------------------------------</span></span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a><span class="st">------------------------------------------------------------</span></span>
+<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a><span class="st">------------------------------------------------------------</span></span>
+<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a><span class="st">------------------------------------------------------------</span></span>
+<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a><span class="st">------------------------------------------------------------</span></span>
+<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a><span class="st">------------------------------QEAERALS----------------------</span></span>
+<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a><span class="st">-----------------------------GANG---RKSPTGTLLESFFSHLRKRARRLS</span></span>
+<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a><span class="st">GRNQGPMSPGAED---------------------LEANAG-------------CAP----</span></span>
+<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a><span class="st">-------------------------------WSS-NRGSIQ-E-----------------</span></span>
+<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a><span class="st">-----PQPIEAVASDPSSDPNFAELDRALQNVRYSLDATANTSNNQPK------HPTKM-</span></span>
+<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a><span class="st">---------ASNPSLKR-----------------HQSSHSG-------------------</span></span>
+<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a><span class="st">------------------------------------------------------------</span></span>
+<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a><span class="st">--------------------------------------------------------PAPS</span></span>
+<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a><span class="st">RKP---------------------------------------------------------</span></span>
+<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a><span class="st">------</span></span>
+<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a><span class="st">Septoria_linicola_sthr_protein_kinase</span></span>
+<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a><span class="st">MTVAYD-MSYRGWSSGSQSA-VCLEDKFEILKDIGDGSFGSVTLGRTRGAGAHIVRRGTL</span></span>
+<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a><span class="st">VAIKTMKKTFESFSQCMELREVIFLRTLPNHPHLVPAYDIFLDPLSKKLHIAMEYMDGNL</span></span>
+<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a><span class="st">YQLMKARD--HKPLDCSSVKSILFQILGGLEHIHDHSFFHRDIKPENILVSTSAPDTGSA</span></span>
+<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a><span class="st">FKRYSALVTPPSTPPAYS------------------IKIADFGLARETHSRVPYTTYVST</span></span>
+<span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a><span class="st">RWYRAPEVLLRAGEYSAPVD--IW--AVGAMAVEIATLKPLFPGGNEVDQVWR-------</span></span>
+<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a><span class="st">--VCEIMGSPGSWVNKHGNIVGGGEWKDGIKLAQKLGFSF--------------------</span></span>
+<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a><span class="st">--------PKMAPHSLETVLCAPHWPASLAQLVTWCLMWDPKVRPTSRQALEHEFF-NDA</span></span>
+<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a><span class="st">LDPLRPKSAATKTLGRKASTHIGATDGSDGIPTLTTKTSSWFRKSLGPRDN-SAPSVPEY</span></span>
+<span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a><span class="st">AQVSHTSSPRPTPAPSVPLESTASSKQARPGATKRATWTNG-ASTAAPIPILPSIR----</span></span>
+<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a><span class="st">PISPLPDASVAQASVRRTEQPDE--RPGKKIGRQLS------------------------</span></span>
+<span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a><span class="st">-----------------VNSQGNHYAELHRQEAERALN----------------------</span></span>
+<span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a><span class="st">-----------------------------GASG---LKSPTGSQRESFFSHLRKRARRFS</span></span>
+<span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a><span class="st">GKPSGLASPTAED---------------------MEANVG-------------CAP----</span></span>
+<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a><span class="st">-------------------------------WTT-NRQSIP-D-----------------</span></span>
+<span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a><span class="st">-----AQAIAPTAADPSVDPNFAELDRALQSVRYSLDATAGAMPTQPK------PPVKM-</span></span>
+<span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a><span class="st">---------ASNPALKR-----------------HHSLPYGKEEL---------SVVNRT</span></span>
+<span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a><span class="st">RRS------------------------------------VKQAPSN-IRYETPCEEDELL</span></span>
+<span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a><span class="st">DEAIASAHQAVTRL-------------DNGITQPARPHLPHVTSEP--TYNVPYLTPSPS</span></span>
+<span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a><span class="st">KDHMAVDFVANDCTPSKPVNIPAIRAQDKAVVNPQWPTPPYDENDWASGVAASIFATQAA</span></span>
+<span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a><span class="st">FR----</span></span>
+<span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-111"><a href="#cb1-111" aria-hidden="true" tabindex="-1"></a><span class="st">Zasmidium_cellare_unknown_protein</span></span>
+<span id="cb1-112"><a href="#cb1-112" aria-hidden="true" tabindex="-1"></a><span class="st">MTVAYD-MSYRGWSSSSQSA-ACLEDKFEIIKDIGDGSFGSVSLGRTRSAGAHIVRRGTM</span></span>
+<span id="cb1-113"><a href="#cb1-113" aria-hidden="true" tabindex="-1"></a><span class="st">VAIKTMKKTFENFAQCMELREIIFLKSLPNHPHLVPAYDIFLDPLSRKLHIAMEYMDGNL</span></span>
+<span id="cb1-114"><a href="#cb1-114" aria-hidden="true" tabindex="-1"></a><span class="st">YQLMKARD--HKPLDGTSVKSILFQILGGLEHIHDHHFFHRDIKPENILVSTSAPDTGNT</span></span>
+<span id="cb1-115"><a href="#cb1-115" aria-hidden="true" tabindex="-1"></a><span class="st">FKRYSQLVTPPSTPPAYS------------------IKIADFGLARETQSRVPYTTYVST</span></span>
+<span id="cb1-116"><a href="#cb1-116" aria-hidden="true" tabindex="-1"></a><span class="st">RWYRAPEVLLRAGEYSAPVD--IW--AVGAMAVEIATLKPLFPGGNEVDQVWR-------</span></span>
+<span id="cb1-117"><a href="#cb1-117" aria-hidden="true" tabindex="-1"></a><span class="st">--VCEIMGSPGSWVNKHGQKVGGGEWKDGIKLAQKLGFSF--------------------</span></span>
+<span id="cb1-118"><a href="#cb1-118" aria-hidden="true" tabindex="-1"></a><span class="st">--------PKMAPHSLETVLPAPQWPASLAQFVTWCLMWDPKVRPTSRQALEHEYF-RDA</span></span>
+<span id="cb1-119"><a href="#cb1-119" aria-hidden="true" tabindex="-1"></a><span class="st">IDPLRPKSS-GRALGRKGS-TLGNNDPVDA-QTLSTKTSLWFRKSLGARDTGAAPAVPEH</span></span>
+<span id="cb1-120"><a href="#cb1-120" aria-hidden="true" tabindex="-1"></a><span class="st">MQLAQTQSPRPSPVHAQTTDPAAYVSKNRPAATKRATWTNGAASNAAPIPILPSIR----</span></span>
+<span id="cb1-121"><a href="#cb1-121" aria-hidden="true" tabindex="-1"></a><span class="st">PISPLPDQSVAQANARRTEQPEE--RPGKKIGRQLS------------------------</span></span>
+<span id="cb1-122"><a href="#cb1-122" aria-hidden="true" tabindex="-1"></a><span class="st">-----------------VNSQGNHYADIHRQEAERALT----------------------</span></span>
+<span id="cb1-123"><a href="#cb1-123" aria-hidden="true" tabindex="-1"></a><span class="st">-----------------------------GANG---LKSPTGSQRESFFSHLRKRARRLS</span></span>
+<span id="cb1-124"><a href="#cb1-124" aria-hidden="true" tabindex="-1"></a><span class="st">GRNQGPMSPGAED---------------------IEASVG-------------CAP----</span></span>
+<span id="cb1-125"><a href="#cb1-125" aria-hidden="true" tabindex="-1"></a><span class="st">-------------------------------WSTNNRGSIQ-E-----------------</span></span>
+<span id="cb1-126"><a href="#cb1-126" aria-hidden="true" tabindex="-1"></a><span class="st">-----PQPIAPAAADPSTDPNFAELDRALQNVRYSLDAAANPANMQPK------HPTKM-</span></span>
+<span id="cb1-127"><a href="#cb1-127" aria-hidden="true" tabindex="-1"></a><span class="st">---------PSNQSLKR-----------------HHSLPYGKEEIMSQT---GGSTSNRT</span></span>
+<span id="cb1-128"><a href="#cb1-128" aria-hidden="true" tabindex="-1"></a><span class="st">RRS------------------------------------LRHAPSS--RYETPCEEDELL</span></span>
+<span id="cb1-129"><a href="#cb1-129" aria-hidden="true" tabindex="-1"></a><span class="st">DEALASVHAAATRL------DKGTS-NVAGTYQPSRPPIGHVTSEP--VYPAPYLTPSHS</span></span>
+<span id="cb1-130"><a href="#cb1-130" aria-hidden="true" tabindex="-1"></a><span class="st">KDQMNVTYTSNEYTPSKAIDIPPMRPQQKAVVNPQWPTPPYDENDWASAAAASIFATQAQ</span></span>
+<span id="cb1-131"><a href="#cb1-131" aria-hidden="true" tabindex="-1"></a><span class="st">FR----</span></span>
+<span id="cb1-132"><a href="#cb1-132" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-133"><a href="#cb1-133" aria-hidden="true" tabindex="-1"></a><span class="st">Fulvia_fulva_sporulation_protein</span></span>
+<span id="cb1-134"><a href="#cb1-134" aria-hidden="true" tabindex="-1"></a><span class="st">MTVAYDNMSYRGWSSQSHSA-VCLEDKFEILKDIGDGSFGSVTLGRTRGAGAHLVRRGTL</span></span>
+<span id="cb1-135"><a href="#cb1-135" aria-hidden="true" tabindex="-1"></a><span class="st">VAIKTMKKTFENFAQCMELREVIFLKSLPNHPHLVPAYDIFLDPLSKKLHIAMEYMDGNL</span></span>
+<span id="cb1-136"><a href="#cb1-136" aria-hidden="true" tabindex="-1"></a><span class="st">YQLMKARD--HKPLDGTSVKSILFQILEGLEHIHDHHFFHRDIKPENILVSTSAPEAGNT</span></span>
+<span id="cb1-137"><a href="#cb1-137" aria-hidden="true" tabindex="-1"></a><span class="st">FKRYSQLVTPPSTPPTYS------------------IKIADFGLARETHSRVPYTTYVST</span></span>
+<span id="cb1-138"><a href="#cb1-138" aria-hidden="true" tabindex="-1"></a><span class="st">RWYRAPEVLLRAGEYSAPVD--IW--AIGAMAVEIATLKPLFPGGNEVDQVWR-------</span></span>
+<span id="cb1-139"><a href="#cb1-139" aria-hidden="true" tabindex="-1"></a><span class="st">--VCEIMGSPGSWVSKHGQKVGGGEWKEGIKLAQKLGFSF--------------------</span></span>
+<span id="cb1-140"><a href="#cb1-140" aria-hidden="true" tabindex="-1"></a><span class="st">--------PKMAPHSMETVLPAPQWPASLAHFITWCLLWDPKNRPTSRQALEHEYF-RDA</span></span>
+<span id="cb1-141"><a href="#cb1-141" aria-hidden="true" tabindex="-1"></a><span class="st">VDPLRPKSSAAHALGRKQS-TLVNNDSSEGLPMLSTKTSSWFRKSMGAREN-VAPAVPEH</span></span>
+<span id="cb1-142"><a href="#cb1-142" aria-hidden="true" tabindex="-1"></a><span class="st">VQAYQNSSPRPSPVHANTTDPALVAAKGRPAATKRATWTNGAANNAAPIPILPSIR----</span></span>
+<span id="cb1-143"><a href="#cb1-143" aria-hidden="true" tabindex="-1"></a><span class="st">PISPLPDATVAQASTRRAEQSDE--RPGKKIGRQLS------------------------</span></span>
+<span id="cb1-144"><a href="#cb1-144" aria-hidden="true" tabindex="-1"></a><span class="st">-----------------VNSQGNHYADMHRQEAERALT----------------------</span></span>
+<span id="cb1-145"><a href="#cb1-145" aria-hidden="true" tabindex="-1"></a><span class="st">-----------------------------GATG---LQSPTGSQRESFFSHLRKRARRLS</span></span>
+<span id="cb1-146"><a href="#cb1-146" aria-hidden="true" tabindex="-1"></a><span class="st">GRNSGPMSPSAED---------------------AEANVG-------------CAP----</span></span>
+<span id="cb1-147"><a href="#cb1-147" aria-hidden="true" tabindex="-1"></a><span class="st">-------------------------------WASNNRQSVQ-E-----------------</span></span>
+<span id="cb1-148"><a href="#cb1-148" aria-hidden="true" tabindex="-1"></a><span class="st">-----PQSIASVAVDPSSDPNFAELDRALQNVRYSLDAAAGAANPQPK------QPTKM-</span></span>
+<span id="cb1-149"><a href="#cb1-149" aria-hidden="true" tabindex="-1"></a><span class="st">---------ASNPTLKR-----------------HHSVPCSKEEVTSNP-----SMANRT</span></span>
+<span id="cb1-150"><a href="#cb1-150" aria-hidden="true" tabindex="-1"></a><span class="st">RRS------------------------------------LRHAPSS--RYETPCEEDELL</span></span>
+<span id="cb1-151"><a href="#cb1-151" aria-hidden="true" tabindex="-1"></a><span class="st">DEALSNAHQAAQNL------DNAPSMNTTATYQPARPLLPQAISEP--AYAAPYLTPSPS</span></span>
+<span id="cb1-152"><a href="#cb1-152" aria-hidden="true" tabindex="-1"></a><span class="st">KDQMNISYGAMDYSPTKPVDIPSMRAQPKGVVDPQWPTPPYDENDWASAAAASIFATQRA</span></span>
+<span id="cb1-153"><a href="#cb1-153" aria-hidden="true" tabindex="-1"></a><span class="st">YQQ---"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Zymoseptoria_unknown_protein\nRQLSVNSQGNHYAEIHRQEAERALVGASALKSPTGSQRESFFSHLRKRARRLSGRNSGVI\nTPSMDAMETSAGCVPWAANKQTTFDTHSIASAAADPSSDPNFAELDRALQSVRYSLDAAA\nNATQQARKPTNRVVEQPSLKR-HHSLPHGVRHKTNPTTVYHDEHSTPRAADTRPPTKKKN\nSRRSHELSASRRTAFSXDNYQSTHRAITTPKFTGRKLSVLWLAQALSSHRLAAKEKASSL\nICARGREDFPAATQVSSHLQWMLWKPALGAFLGLLTNKPPSTPTRSRLPQPIRHQTPISL\nSWIVHCKVYDTAWMPPRTRLNKLGSLRTALSNHHSVTTRFLTALDTRPTQPPYTTTSTEA\nRHEQPIQDPRRRRRILDEVMNSAHLAARRSRTIISQLTGQSLRRNSPAGSACSGWRKRSQ\nVTDWQPKRKLLLSSAQEGEKTFRPQLRCHHTFNGCYGNQRWVR-SLGCQTNHLRHPLDRV\nCRSRSVIRPQ-FRAGSCTAKCTIQPGCRRERDSTSEAYEPRSATIIEASPLASSRRTQDQ\nPNHRIPRRALKHATSSRYKTPDEEEEFSTKSTQRISPHGVLXRERRAARCAEFMTSSRIL\nLLRRGSCIGCSWRASVLVVVYGGWVGLVSNAVRKRVVTLQWLLNYAVRRLPSLLSRVRGG\nIQAVSYTLQCTIQLSEIGVRIGCGRRDRVGVEGGLFVSSPRNAPSAGFHSIHRCDDTVAA\nGKSSRPLAQMREEAFSLAASRLESACANQSTLSFLPVNFGVVIALVDLSSRTPCGEMRVH\nDFVENSSSSSGVLYRLLVACFSARRGIRWLGWSCVRREEASGDASMMVAQLRGSASLVES\nRSRRHPGCIVHFAVHDPAQRNWGLMTDRLRQTRSSGCRRWFVCQPKERTQRWFPHPLKVH\nLSCGRKVFSPSCADERRSFLFGCQSVTERLRQPEHAQLPAGEFRRSDCPVSLIIVXENAV\nRRDALSSLRREFFFFVGGLVSAARGVLQCSSWYTVVGLVLCLTPGSEWRFNDGCSTTRFV\nGFLACVAFAAASRLYRTLCSARSSSAKLGSDDGSAAADAIEWVSKV--VCLLAAQGTHPA\nLVSIASIEGVMTPELRPESLLALLRREKKLSLWLPVGDLRALAPTRARSASCRISALPCE\nLTDNCR\n\nElasticomyces_elasticus_unknown_protein\n------------------------------------------------------------\n------------------------------------------------------------\n------------------------------------------------------------\n------------------------------------------------------------\n------------------------------------------------------------\n------------------------------------------------------------\n------------------------------------------------------------\n------------------------------------------------------------\n------------------------------------------------------------\n--------------MRRSDAEE---KASRKIGRQLS------------------------\n-----------------VASHGNHYADAHRHEAEQALN----------------------\n-----------------------------GRNG---LASPTSSQRGSFFAHLRKRARRLS\nGRNQAPVSPSVDD---------------------IEASAG-------------CAP----\n-------------------------------WAS-NRQSMAIE-----------------\n-----SLAITTHATDPSSDPNFAELDRALQNVRYSLDAGSYSNNNVQK------PVQKV-\n---------PSNPMLKR-----------------HHSLPFGQDERISPVPAVNGPISSRT\nRRS------------------------------------VRQAPHPGHRYETPDEEEELL\nDEVLASAHRAARRLDRYIQQDNSPLPSVTSQQERARPPVQQVTSDP--GCFVPYLTPSPS\nKDRNG-------------------------------------------------------\n------\n\nZymoseptoria_brevis_protein_kinase\nMTVAYENMSYRGWSSGSHSAAVCLEDKFEIIKDIGDGSFGSVTLGRTRSAGAHLVRRNTL\nVAIKTMKKTFENFAQCMELREVIFLKTLPSHPHLVPAYDIFLDPLSKKLHIAMEHMDGNL\nYQLMKARD--HKPLDESSVKSILFQILEGLEHIHDHSFFHRDIKPENILVSTSAHDTGSA\nFKRYSSLVTPPSTPPAYT------------------IKIADFGLARETHSRVPYTTYVST\nRWYRAPEVLLRAGEYSAPVD--IW--AIGAMAVEIATLKPLFPGGNEVDQVWR-------\n--VCEVMGSPGAWVNKHGQKVGGGEWKEGIKLAQKLGFSF--------------------\n--------PKMAPHSLETVLPSPQWPASLANFITWCLMWDPKVRPTSRQALEHEYF-QNA\nLDPLAPKSS-----SRAQSRASVRHD-----SDLPTKTASWFRKSLGPRDA-APPAVPQH\nNSEPLATQPMPDPMESSP------APKVKPMAAKRATWAHG-NANAAPMPILPSIR----\nPISPLPDAITAHANARHIDQPPQEVSPSKKIGRQLS------------------------\n-----------------VNSQGNHYAEIHRQEAERALV----------------------\n-----------------------------GASA---LKSPTGSQRESFFSHLRKRARRLS\nGRNSGVITPSMDA---------------------METNAG-------------CVP----\n-------------------------------WAA-NKQPVF-D-----------------\n-----THSVASAAADPSSDPNFAELDRALQSVRYSLDAAANATQQARK------PTNRV-\n---------VSNPSLKR-----------------HHSLPHGVDDKTQ-------ANHRIP\nRRA------------------------------------LKHATSS--RYETPDEEEELL\nDEVMTSAHLAARRL---------------DNEQLSRPPLPHVISEPVTVYTAPYLTPSHS\nKDQMSLDYVTQGPAPTNAVEIPPRRQPSNSKNNPQWPTPPYDENDWAAAAAASIFATQRA\nYQ----\n\nOphiocordyceps_unilateralis_sthr_protein_kinase\n------------------------------------------------------------\n------------------------------------------------------------\n------------------------------------------------------------\n------------------------------------------------------------\n-----------------------W------------------------------------\n------------------------------------------------------------\n------------------------------------------------------------\n------------------------------------------------------------\n------------------------------------------------------------\n------------------------------------------------------------\n------------------------------QEAERALS----------------------\n-----------------------------GANG---RKSPTGTLLESFFSHLRKRARRLS\nGRNQGPMSPGAED---------------------LEANAG-------------CAP----\n-------------------------------WSS-NRGSIQ-E-----------------\n-----PQPIEAVASDPSSDPNFAELDRALQNVRYSLDATANTSNNQPK------HPTKM-\n---------ASNPSLKR-----------------HQSSHSG-------------------\n------------------------------------------------------------\n--------------------------------------------------------PAPS\nRKP---------------------------------------------------------\n------\n\nSeptoria_linicola_sthr_protein_kinase\nMTVAYD-MSYRGWSSGSQSA-VCLEDKFEILKDIGDGSFGSVTLGRTRGAGAHIVRRGTL\nVAIKTMKKTFESFSQCMELREVIFLRTLPNHPHLVPAYDIFLDPLSKKLHIAMEYMDGNL\nYQLMKARD--HKPLDCSSVKSILFQILGGLEHIHDHSFFHRDIKPENILVSTSAPDTGSA\nFKRYSALVTPPSTPPAYS------------------IKIADFGLARETHSRVPYTTYVST\nRWYRAPEVLLRAGEYSAPVD--IW--AVGAMAVEIATLKPLFPGGNEVDQVWR-------\n--VCEIMGSPGSWVNKHGNIVGGGEWKDGIKLAQKLGFSF--------------------\n--------PKMAPHSLETVLCAPHWPASLAQLVTWCLMWDPKVRPTSRQALEHEFF-NDA\nLDPLRPKSAATKTLGRKASTHIGATDGSDGIPTLTTKTSSWFRKSLGPRDN-SAPSVPEY\nAQVSHTSSPRPTPAPSVPLESTASSKQARPGATKRATWTNG-ASTAAPIPILPSIR----\nPISPLPDASVAQASVRRTEQPDE--RPGKKIGRQLS------------------------\n-----------------VNSQGNHYAELHRQEAERALN----------------------\n-----------------------------GASG---LKSPTGSQRESFFSHLRKRARRFS\nGKPSGLASPTAED---------------------MEANVG-------------CAP----\n-------------------------------WTT-NRQSIP-D-----------------\n-----AQAIAPTAADPSVDPNFAELDRALQSVRYSLDATAGAMPTQPK------PPVKM-\n---------ASNPALKR-----------------HHSLPYGKEEL---------SVVNRT\nRRS------------------------------------VKQAPSN-IRYETPCEEDELL\nDEAIASAHQAVTRL-------------DNGITQPARPHLPHVTSEP--TYNVPYLTPSPS\nKDHMAVDFVANDCTPSKPVNIPAIRAQDKAVVNPQWPTPPYDENDWASGVAASIFATQAA\nFR----\n\nZasmidium_cellare_unknown_protein\nMTVAYD-MSYRGWSSSSQSA-ACLEDKFEIIKDIGDGSFGSVSLGRTRSAGAHIVRRGTM\nVAIKTMKKTFENFAQCMELREIIFLKSLPNHPHLVPAYDIFLDPLSRKLHIAMEYMDGNL\nYQLMKARD--HKPLDGTSVKSILFQILGGLEHIHDHHFFHRDIKPENILVSTSAPDTGNT\nFKRYSQLVTPPSTPPAYS------------------IKIADFGLARETQSRVPYTTYVST\nRWYRAPEVLLRAGEYSAPVD--IW--AVGAMAVEIATLKPLFPGGNEVDQVWR-------\n--VCEIMGSPGSWVNKHGQKVGGGEWKDGIKLAQKLGFSF--------------------\n--------PKMAPHSLETVLPAPQWPASLAQFVTWCLMWDPKVRPTSRQALEHEYF-RDA\nIDPLRPKSS-GRALGRKGS-TLGNNDPVDA-QTLSTKTSLWFRKSLGARDTGAAPAVPEH\nMQLAQTQSPRPSPVHAQTTDPAAYVSKNRPAATKRATWTNGAASNAAPIPILPSIR----\nPISPLPDQSVAQANARRTEQPEE--RPGKKIGRQLS------------------------\n-----------------VNSQGNHYADIHRQEAERALT----------------------\n-----------------------------GANG---LKSPTGSQRESFFSHLRKRARRLS\nGRNQGPMSPGAED---------------------IEASVG-------------CAP----\n-------------------------------WSTNNRGSIQ-E-----------------\n-----PQPIAPAAADPSTDPNFAELDRALQNVRYSLDAAANPANMQPK------HPTKM-\n---------PSNQSLKR-----------------HHSLPYGKEEIMSQT---GGSTSNRT\nRRS------------------------------------LRHAPSS--RYETPCEEDELL\nDEALASVHAAATRL------DKGTS-NVAGTYQPSRPPIGHVTSEP--VYPAPYLTPSHS\nKDQMNVTYTSNEYTPSKAIDIPPMRPQQKAVVNPQWPTPPYDENDWASAAAASIFATQAQ\nFR----\n\nFulvia_fulva_sporulation_protein\nMTVAYDNMSYRGWSSQSHSA-VCLEDKFEILKDIGDGSFGSVTLGRTRGAGAHLVRRGTL\nVAIKTMKKTFENFAQCMELREVIFLKSLPNHPHLVPAYDIFLDPLSKKLHIAMEYMDGNL\nYQLMKARD--HKPLDGTSVKSILFQILEGLEHIHDHHFFHRDIKPENILVSTSAPEAGNT\nFKRYSQLVTPPSTPPTYS------------------IKIADFGLARETHSRVPYTTYVST\nRWYRAPEVLLRAGEYSAPVD--IW--AIGAMAVEIATLKPLFPGGNEVDQVWR-------\n--VCEIMGSPGSWVSKHGQKVGGGEWKEGIKLAQKLGFSF--------------------\n--------PKMAPHSMETVLPAPQWPASLAHFITWCLLWDPKNRPTSRQALEHEYF-RDA\nVDPLRPKSSAAHALGRKQS-TLVNNDSSEGLPMLSTKTSSWFRKSMGAREN-VAPAVPEH\nVQAYQNSSPRPSPVHANTTDPALVAAKGRPAATKRATWTNGAANNAAPIPILPSIR----\nPISPLPDATVAQASTRRAEQSDE--RPGKKIGRQLS------------------------\n-----------------VNSQGNHYADMHRQEAERALT----------------------\n-----------------------------GATG---LQSPTGSQRESFFSHLRKRARRLS\nGRNSGPMSPSAED---------------------AEANVG-------------CAP----\n-------------------------------WASNNRQSVQ-E-----------------\n-----PQSIASVAVDPSSDPNFAELDRALQNVRYSLDAAAGAANPQPK------QPTKM-\n---------ASNPTLKR-----------------HHSVPCSKEEVTSNP-----SMANRT\nRRS------------------------------------LRHAPSS--RYETPCEEDELL\nDEALSNAHQAAQNL------DNAPSMNTTATYQPARPLLPQAISEP--AYAAPYLTPSPS\nKDQMNISYGAMDYSPTKPVDIPSMRAQPKGVVDPQWPTPPYDENDWASAAAASIFATQRA\nYQQ---"</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="question-6" class="level1">
+<h1>Question 6</h1>
+<p>Given the alignment above, I can now create a phylogenetic tree using the EBI’s Simple Phylogeny tool.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="final_phylo_tree.png" style="width:80.0%" class="figure-img"></p>
+<figcaption>Phylogenetic tree for various fungal proteins</figcaption>
+</figure>
+</div>
+</section>
+<section id="question-7" class="level1">
+<h1>Question 7</h1>
+<p>To generate a heatmap, the msa must be in fasta format. One of the MUSCLE outputs is ‘the alignment in FASTA format converted by Seqret’, so I used that.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(bio3d)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Read multiple sequence alignment into R</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>msa <span class="ot">&lt;-</span> <span class="fu">read.fasta</span>(<span class="st">"finalseq.fasta"</span>)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate sequence identity matrix</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>seq_id_m <span class="ot">&lt;-</span> <span class="fu">seqidentity</span>(msa)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(pheatmap)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">#Generate a heatmap of the msa (nicer enhancements courtesy of ChatGPT)</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>idm_percent <span class="ot">&lt;-</span> seq_id_m <span class="sc">*</span> <span class="dv">100</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(idm_percent) <span class="ot">&lt;-</span> msa<span class="sc">$</span>id</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(idm_percent) <span class="ot">&lt;-</span> msa<span class="sc">$</span>id</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="fu">pheatmap</span>(idm_percent,</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>         <span class="at">display_numbers =</span> <span class="cn">TRUE</span>,       <span class="co"># show exact % in each cell</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>         <span class="at">number_format =</span> <span class="st">"%.1f"</span>,       <span class="co"># format: 1 decimal place</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>         <span class="at">color =</span> <span class="fu">colorRampPalette</span>(<span class="fu">c</span>(<span class="st">"aquamarine"</span>, <span class="st">"darkolivegreen4"</span>))(<span class="dv">100</span>),  <span class="co"># color gradient</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>         <span class="at">clustering_distance_rows =</span> <span class="st">"euclidean"</span>,</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>         <span class="at">clustering_distance_cols =</span> <span class="st">"euclidean"</span>,</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>         <span class="at">main =</span> <span class="st">"Sequence Identity (%)"</span>,</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>         <span class="at">fontsize =</span> <span class="dv">8</span>,</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>         <span class="at">border_color =</span> <span class="cn">NA</span>)            <span class="co"># cleaner look without gridlines</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="geneproject_final_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Quick note: because the sequence of my novel protein is quite long (over 2000 characters), some shortening is needed before it can be processed by many of the tools that I’ll be using going forward.</p>
+<p>I was unsure of the best way to shorten my sequence, so I asked ChatGPT to do it for me. It identified a central 1000-amino acid segment that avoids the N-terminal signal peptide and C-terminal tail, which are less structured and may not be essential for the core function.</p>
+<p>The resulting novel sequence, printed below, will be saved as “zymo_novel”.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>zymo_novel <span class="ot">&lt;-</span> <span class="st">"VITPSMDAMETSAGCVPWAANKQTTFDTHSIASAAADPSSDPNFAELDRALQSVRYSLDAAANATQQARKPTNRVVEQPSLKRHHSLPHGVRHKTNPTTVYHDEHSTPRAADTRPPTKKKNSRRSHELSASRRTAFSXDNYQSTHRAITTPKFTGRKLSVLWLAQALSSHRLAAKEKASSLICARGREDFPAATQVSSHLQWMLWKPALGAFLGLLTNKPPSTPTRSRLPQPIRHQTPISLSWIVHCKVYDTAWMPPRTRLNKLGSLRTALSNHHSVTTRFLTALDTRPTQPPYTTTSTEARHEQPIQDPRRRRRILDEVMNSAHLAARRSRTIISQLTGQSLRRNSPAGSACSGWRKRSQVTDWQPKRKLLLSSAQEGEKTFRPQLRCHHTFNGCYGNQRWVRSLGCQTNHLRHPLDRVCRSRSVIRPQFRAGSCTAKCTIQPGCRRERDSTSEAYEPRSATIIEASPLASSRRTQDQPNHRIPRRALKHATSSRYKTPDEEEEFSTKSTQRISPHGVLXRERRAARCAEFMTSSRILLLRRGSCIGCSWRASVLVVVYGGWVGLVSNAVRKRVVTLQWLLNYAVRRLPSLLSRVRGGIQAVSYTLQCTIQLSEIGVRIGCGRRDRVGVEGGLFVSSPRNAPSAGFHSIHRCDDTVAAGKSSRPLAQMREEAFSLAASRLESACANQSTLSFLPVNFGVVIALVDLSSRTPCGEMRVHDFVENSSSSSGVLYRLLVACFSARRGIRWLGWSCVRREEASGDASMMVAQLRGSASLVESRSRRHPGCIVHFAVHDPAQRNWGLMTDRLRQTRSSGCRRWFVCQPKERTQRWFPHPLKVHLSCGRKVFSPSCADERRSFLFGCQSVTERLRQPEHAQLPAGEFRRSDCPVSLIIVXENAVRRDALSSLRREFFFFVGGLVSAARGVLQCSSWYTVVGLVLCLTPGSEWRFNDGCSTTRFVGFLACVAFAAASRLYRTLCSARSSSAKLGSDDGSAAADAIEWVSKVVCLLAAQGTHPALVSIASIEGVMTPELRPESLLALLRREKKLSLWLPVGDLRALAPTRARSASCRISALPCELTDN"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="question-8" class="level1">
+<h1>Question 8</h1>
+<p>I am going to try to create a consensus for all my aligned sequences (msa), using the Bio3d package <code>consensus()</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>cons <span class="ot">&lt;-</span> <span class="fu">consensus</span>(msa)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Because this sequence appears to have a lot of gaps in it, I will use the protein sequences that I aligned instead. I have saved them as text in some of the code chunks above.</p>
+<p>I will use the <code>blast.pdb()</code> function to search the seven fungal protein sequences against the pdb database.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># blast.pdb(zymo_novel) yielded no results</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co"># blast.pdb(ophiocordyceps) yielded no results</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co"># blast.pdb(zasmidium) </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="7w5c.jpeg" class="img-fluid figure-img"></p>
+<figcaption>pdb match 1, 7W5C</figcaption>
+</figure>
+</div>
+<p><strong>Sequence details</strong></p>
+<p>PDB ID: 7W5C</p>
+<p>E Value: 6.985e-33</p>
+<p>Experimental technique: X-RAY DIFFRACTION</p>
+<p>Resolution: 2.20 Å</p>
+<p>Source organism: Arabidopsis thaliana</p>
+<p>% identity: 34%</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># blast.pdv(fulvia)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="7e75.jpeg" class="img-fluid figure-img"></p>
+<figcaption>pdb match 2, 7E75</figcaption>
+</figure>
+</div>
+<p><strong>Sequence details</strong></p>
+<p>PDB ID: 7E75</p>
+<p>E Value: 2.141e-28</p>
+<p>Experimental technique: X-RAY DIFFRACTION</p>
+<p>Resolution: 2.48 Å</p>
+<p>Source organism: Homo Sapiens</p>
+<p>% identity: 34%</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># blast.pdb(z_brevis)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="7nj0.jpeg" class="img-fluid figure-img"></p>
+<figcaption>pdb match 3, 7NJ0</figcaption>
+</figure>
+</div>
+<p><strong>Sequence details</strong></p>
+<p>PDB ID: 7NJ0</p>
+<p>E Value: 1.682e-40</p>
+<p>Experimental technique: ELECTRON MICROSCOPY</p>
+<p>Resolution: 3.60 Å</p>
+<p>Source organism: Homo Sapiens</p>
+<p>% identity: 34%</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># blast.pdb(elasticomyces) yielded no results</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co"># blast.pdb(septoria) yielded no results with a higher identity score than those above</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="question-9" class="level1">
+<h1>Question 9</h1>
+<p>I will run “zymo_novel” through AlphaFold.</p>
+<p>It took a couple hours, but my output included several files that were saved to my project directory.</p>
+<p>I then ran “/test_62382/test_62382_unrelaxed_rank_001_alphafold2_ptm_model_2_seed_000.pdb” through the online Mol* viewer (the conserved regions happen to be all alpha helices, and are rendered in spacefill):</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="final_protein_alphafold.png" class="img-fluid figure-img"></p>
+<figcaption>Final Unknown Protein Structure- colored by PLDDT confidence</figcaption>
+</figure>
+</div>
+</section>
+<section id="question-10" class="level1">
+<h1>Question 10</h1>
+<ol type="i">
+<li>I attempted to use the CASTPfold server to predict binding sites in my protein, but got the following result:</li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="no_pockets.png" class="img-fluid figure-img"></p>
+<figcaption>CASTPfold for my novel protein</figcaption>
+</figure>
+</div>
+<p>So, unfortunately my protein appears to have no small molecule binding sites.</p>
+<ol start="2" type="i">
+<li>I then performed a CHEMBEL “target” search of my novel sequence.</li>
+</ol>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

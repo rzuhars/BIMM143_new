@@ -1,0 +1,417 @@
+---
+title: "Final 'Find a Gene' Project"
+author: "Renee Zuhars (PID A17329856)"
+format: pdf
+---
+
+# Question 1
+
+Beginning my search, I knew I wanted to limit my organism to some kind of fungus, because they are very understudied and I think their diversity and versatility are fascinating!
+
+I decided to narrow my search to those proteins that help the fungus *Ophiocordyceps Unilateralis* "zombify" a host insect by taking over the hosts' neurological systems, eventually killing the host.
+
+**protein name**: serine/threonine-protein kinase MAK, partial
+
+**species**: *Ophiocordyceps Unilateralis*
+
+**accession number**: ADI72911.1
+
+**function**: The role of MAK-like kinases in this species is to induce behavioral changes in the host by interfering with Mitogen- Activated Protein Kinase signaling pathways. (ChatGPT)
+
+![Ophiocordyceps Unilaterialis](ophiocordyceps.png){width=60% height=auto}
+
+# Question 2
+
+Attempting to find a homologous protein:
+
+**blast method:** NCBI tblastn
+
+**database:** est
+
+**limits/restrictions**: none
+
+My BLAST results were as followed:
+
+![BLAST results, original query](original protein blast results.png)
+
+**Alignment of choice:** MgA0137f MgA Library Zymoseptoria tritici cDNA clone MgA0137 5', mRNA sequence
+
+**E Value:** 3e-46
+
+**Percent Identity:** 59.84%
+
+**Percent Coverage:** 91% 
+
+# Question 3
+
+Here is some information about the homolog I am looking into:
+
+![Zymoseptoria Triciti](zymoseptoria tritici.png){width=80% height=auto}
+
+**Name**: MgA0137f MgA Library Zymoseptoria tritici cDNA clone MgA0137 5', mRNA sequence
+
+**Species Derived from**: Zymoseptoria tritici : this is a pathogenic fungus that attacks wheat plants. It is resistant to multiple fungicides, and causes septoria leaf blotch. 
+
+**FASTA format sequence, translated using EMBOSS Transeq**: 
+
+AW180074.1_1 MgA0137f MgA Library Zymoseptoria tritici cDNA clone MgA0137 5', mRNA sequence
+
+RQLSVNSQGNHYAEIHRQEAERALVGASALKSPTGSQRESFFSHLRKRARRLSGRNSGVI
+TPSMDAMETSAGCVPWAANKQTTFDTHSIASAAADPSSDPNFAELDRALQSVRYSLDAAA
+NATQQARKPTNRVVEQPSLKRHHSLPHGVRHKTNPTTVYHDEH*STPRAADTRPPTKKKN
+SRRSHELSASRRTAFSX
+
+DNYQSTHRAITTPKFTGRKLSVLWLAQALSSHRLAAKEKASSLICARGREDFPAATQVSS
+HLQWMLWKPALGAFLGLLTNKPPSTPTRSRLPQPIRHQTPISLSWIVHCKVYDTAWMPPR
+TRLNKLGSLRTALSNHHSVTTRFLTALDTRPTQPPYTTTSTEARHEQPIQDPRRRRRI
+LDEVMNSAHLAARRSR
+
+TIISQLTGQSLRRNSPAGSACSGWRKRSQVTDWQPKRKLLLSSAQEGEKTFRPQLRCHH
+TFNGCYGNQRWVRSLGCQTNHLRHPLDRVCRSRSVIRPQFRAGSCTAKCTIQPGCRRE
+RDSTSEAYEPRSATIIEASPLASSRRTQDQPNHRIPRRALKHATSSRYKTPDEEEEF
+STKSTQRISPHGVLX
+
+RERRAARCAEFMTSSRILLLRRGSCIGCSWRASVLVVVYGGWVGLVSNAVRKRVVTLQ*W
+LLNYAVRRLPSLLSRVRGGIQAVSYTLQCTIQLSEIGV**RIGCGRRDRVGVEGGLFVSS
+PRNAPSAGFHSIHRCDDTVAAGKSSRPLAQMREEAFSLAASRLESACANQSTLSFLP
+VNFGVVIALVDLS
+
+SRTPCGEMRVHDFVENSSSSSGVLYRLLVACFSARRGIRWLGWSCVRREEASGDASMM
+VAQLRGSASLVESRSRRHPGCIVHFAVHDPAQRNWGLMTDRLRQTRSSGCRRWFVCQ
+PKERTQRWFPHPLKVHLSCGRKVFSPSCADERRSFLFGCQSVTERLRQPEHAQLPA
+GEFRRSDCPVSLIIVX
+
+ENAVRRDALSSLRREFFFFVGGLVSAARGVLQCSSWYTVVGLVLCLTPGSEWRFNDG
+CSTTRFVGFLACVAFAAASRLYRTLCSARSSSAKLGSDDGSAAADAIEWVSKVVCLLAA
+QGTHPALVSIASIEGVMTPELRPESLLALLRR*EKKLSLWLPVGDLRALAPTRARSASCR
+ISALPCELTDNCR
+
+
+# Question 4
+
+To determine if this protein is novel:
+
+I used NCBI blastp, in the nr database. 
+
+![BLAST results, novel query](novel protein blast results.png){width=80% height=auto}
+
+
+**There is no match with 100% identity!**
+
+
+# Question 5
+
+I will use MUSCLE at EBI to produce a multiple sequence alignment of the following proteins: 
+
+**My novel protein**
+
+`>`Zymoseptoria unknown protein (novel protein from BLAST results)
+
+```{r, include=FALSE}
+zymo_novel_old <- "RQLSVNSQGNHYAEIHRQEAERALVGASALKSPTGSQRESFFSHLRKRARRLSGRNSGVITPSMDAMETSAGCVPWAANKQTTFDTHSIASAAADPSSDPNFAELDRALQSVRYSLDAAANATQQARKPTNRVVEQPSLKRHHSLPHGVRHKTNPTTVYHDEHSTPRAADTRPPTKKKNSRRSHELSASRRTAFSXDNYQSTHRAITTPKFTGRKLSVLWLAQALSSHRLAAKEKASSLICARGREDFPAATQVSSHLQWMLWKPALGAFLGLLTNKPPSTPTRSRLPQPIRHQTPISLSWIVHCKVYDTAWMPPRTRLNKLGSLRTALSNHHSVTTRFLTALDTRPTQPPYTTTSTEARHEQPIQDPRRRRRILDEVMNSAHLAARRSRTIISQLTGQSLRRNSPAGSACSGWRKRSQVTDWQPKRKLLLSSAQEGEKTFRPQLRCHHTFNGCYGNQRWVRSLGCQTNHLRHPLDRVCRSRSVIRPQFRAGSCTAKCTIQPGCRRERDSTSEAYEPRSATIIEASPLASSRRTQDQPNHRIPRRALKHATSSRYKTPDEEEEFSTKSTQRISPHGVLXRERRAARCAEFMTSSRILLLRRGSCIGCSWRASVLVVVYGGWVGLVSNAVRKRVVTLQWLLNYAVRRLPSLLSRVRGGIQAVSYTLQCTIQLSEIGVRIGCGRRDRVGVEGGLFVSSPRNAPSAGFHSIHRCDDTVAAGKSSRPLAQMREEAFSLAASRLESACANQSTLSFLPVNFGVVIALVDLSSRTPCGEMRVHDFVENSSSSSGVLYRLLVACFSARRGIRWLGWSCVRREEASGDASMMVAQLRGSASLVESRSRRHPGCIVHFAVHDPAQRNWGLMTDRLRQTRSSGCRRWFVCQPKERTQRWFPHPLKVHLSCGRKVFSPSCADERRSFLFGCQSVTERLRQPEHAQLPAGEFRRSDCPVSLIIVXENAVRRDALSSLRREFFFFVGGLVSAARGVLQCSSWYTVVGLVLCLTPGSEWRFNDGCSTTRFVGFLACVAFAAASRLYRTLCSARSSSAKLGSDDGSAAADAIEWVSKVVCLLAAQGTHPALVSIASIEGVMTPELRPESLLALLRREKKLSLWLPVGDLRALAPTRARSASCRISALPCELTDNCR"
+```
+
+**My original sequence for ophiocordyceps:**
+
+`>`ADI72911.1 serine/threonine-protein kinase MAK, partial [Ophiocordyceps unilateralis]
+
+```{r, include=FALSE}
+ophiocordyceps <- "WQEAERALSGANGRKSPTGTLLESFFSHLRKRARRLSGRNQGPMSPGAEDLEANAGCAWSSNRGSIQEPQPIEAVASDPSSDPNFAELDRALQNVRYSLDATANTSNNQPKHPTKMASNPSLKRHQSSHSGPAPSRKP"
+```
+
+**Other proteins of interest, based on BLAST results of original and novel proteins:**
+
+*1.*
+`>`KAK4508075.1 hypothetical protein PRZ48_001812 [Zasmidium cellare]
+
+```{r, include=FALSE}
+zasmidium <- "MTVAYDMSYRGWSSSSQSAACLEDKFEIIKDIGDGSFGSVSLGRTRSAGAHIVRRGTMVAIKTMKKTFENFAQCMELREIIFLKSLPNHPHLVPAYDIFLDPLSRKLHIAMEYMDGNLYQLMKARDHKPLDGTSVKSILFQILGGLEHIHDHHFFHRDIKPENILVSTSAPDTGNTFKRYSQLVTPPSTPPAYSIKIADFGLARETQSRVPYTTYVSTRWYRAPEVLLRAGEYSAPVDIWAVGAMAVEIATLKPLFPGGNEVDQVWRVCEIMGSPGSWVNKHGQKVGGGEWKDGIKLAQKLGFSFPKMAPHSLETVLPAPQWPASLAQFVTWCLMWDPKVRPTSRQALEHEYFRDAIDPLRPKSSGRALGRKGSTLGNNDPVDAQTLSTKTSLWFRKSLGARDTGAAPAVPEHMQLAQTQSPRPSPVHAQTTDPAAYVSKNRPAATKRATWTNGAASNAAPIPILPSIRPISPLPDQSVAQANARRTEQPEERPGKKIGRQLSVNSQGNHYADIHRQEAERALTGANGLKSPTGSQRESFFSHLRKRARRLSGRNQGPMSPGAEDIEASVGCAPWSTNNRGSIQEPQPIAPAAADPSTDPNFAELDRALQNVRYSLDAAANPANMQPKHPTKMPSNQSLKRHHSLPYGKEEIMSQTGGSTSNRTRRSLRHAPSSRYETPCEEDELLDEALASVHAAATRLDKGTSNVAGTYQPSRPPIGHVTSEPVYPAPYLTPSHSKDQMNVTYTSNEYTPSKAIDIPPMRPQQKAVVNPQWPTPPYDENDWASAAAASIFATQAQFR"
+```
+
+*2.*
+`>`XP_047755397.1 Sporulation protein kinase pit1 [Fulvia fulva]
+
+```{r, include=FALSE}
+fulvia <- "MTVAYDNMSYRGWSSQSHSAVCLEDKFEILKDIGDGSFGSVTLGRTRGAGAHLVRRGTLVAIKTMKKTFENFAQCMELREVIFLKSLPNHPHLVPAYDIFLDPLSKKLHIAMEYMDGNLYQLMKARDHKPLDGTSVKSILFQILEGLEHIHDHHFFHRDIKPENILVSTSAPEAGNTFKRYSQLVTPPSTPPTYSIKIADFGLARETHSRVPYTTYVSTRWYRAPEVLLRAGEYSAPVDIWAIGAMAVEIATLKPLFPGGNEVDQVWRVCEIMGSPGSWVSKHGQKVGGGEWKEGIKLAQKLGFSFPKMAPHSMETVLPAPQWPASLAHFITWCLLWDPKNRPTSRQALEHEYFRDAVDPLRPKSSAAHALGRKQSTLVNNDSSEGLPMLSTKTSSWFRKSMGARENVAPAVPEHVQAYQNSSPRPSPVHANTTDPALVAAKGRPAATKRATWTNGAANNAAPIPILPSIRPISPLPDATVAQASTRRAEQSDERPGKKIGRQLSVNSQGNHYADMHRQEAERALTGATGLQSPTGSQRESFFSHLRKRARRLSGRNSGPMSPSAEDAEANVGCAPWASNNRQSVQEPQSIASVAVDPSSDPNFAELDRALQNVRYSLDAAAGAANPQPKQPTKMASNPTLKRHHSVPCSKEEVTSNPSMANRTRRSLRHAPSSRYETPCEEDELLDEALSNAHQAAQNLDNAPSMNTTATYQPARPLLPQAISEPAYAAPYLTPSPSKDQMNISYGAMDYSPTKPVDIPSMRAQPKGVVDPQWPTPPYDENDWASAAAASIFATQRAYQQ"
+```
+
+*3.*
+`>`KJY01546.1 CMGC/RCK/MAK protein kinase [Zymoseptoria brevis]
+
+```{r, include=FALSE}
+z_brevis <- "MTVAYENMSYRGWSSGSHSAAVCLEDKFEIIKDIGDGSFGSVTLGRTRSAGAHLVRRNTLVAIKTMKKTFENFAQCMELREVIFLKTLPSHPHLVPAYDIFLDPLSKKLHIAMEHMDGNLYQLMKARDHKPLDESSVKSILFQILEGLEHIHDHSFFHRDIKPENILVSTSAHDTGSAFKRYSSLVTPPSTPPAYTIKIADFGLARETHSRVPYTTYVSTRWYRAPEVLLRAGEYSAPVDIWAIGAMAVEIATLKPLFPGGNEVDQVWRVCEVMGSPGAWVNKHGQKVGGGEWKEGIKLAQKLGFSFPKMAPHSLETVLPSPQWPASLANFITWCLMWDPKVRPTSRQALEHEYFQNALDPLAPKSSSRAQSRASVRHDSDLPTKTASWFRKSLGPRDAAPPAVPQHNSEPLATQPMPDPMESSPAPKVKPMAAKRATWAHGNANAAPMPILPSIRPISPLPDAITAHANARHIDQPPQEVSPSKKIGRQLSVNSQGNHYAEIHRQEAERALVGASALKSPTGSQRESFFSHLRKRARRLSGRNSGVITPSMDAMETNAGCVPWAANKQPVFDTHSVASAAADPSSDPNFAELDRALQSVRYSLDAAANATQQARKPTNRVVSNPSLKRHHSLPHGVDDKTQANHRIPRRALKHATSSRYETPDEEEELLDEVMTSAHLAARRLDNEQLSRPPLPHVISEPVTVYTAPYLTPSHSKDQMSLDYVTQGPAPTNAVEIPPRRQPSNSKNNPQWPTPPYDENDWAAAAAASIFATQRAYQ"
+```
+
+*4.*
+`>`KAK4981489.1 hypothetical protein LTR28_003093, partial [Elasticomyces elasticus]
+
+```{r, include=FALSE}
+elasticomyces <- "MRRSDAEEKASRKIGRQLSVASHGNHYADAHRHEAEQALNGRNGLASPTSSQRGSFFAHLRKRARRLSGRNQAPVSPSVDDIEASAGCAPWASNRQSMAIESLAITTHATDPSSDPNFAELDRALQNVRYSLDAGSYSNNNVQKPVQKVPSNPMLKRHHSLPFGQDERISPVPAVNGPISSRTRRSVRQAPHPGHRYETPDEEEELLDEVLASAHRAARRLDRYIQQDNSPLPSVTSQQERARPPVQQVTSDPGCFVPYLTPSPSKDRNG"
+```
+
+*5. *
+`>`KAI5369935.1 putative serine/threonine-protein kinase, active [Septoria linicola]
+
+```{r, include=FALSE}
+septoria <- "MTVAYDMSYRGWSSGSQSAVCLEDKFEILKDIGDGSFGSVTLGRTRGAGAHIVRRGTLVAIKTMKKTFESFSQCMELREVIFLRTLPNHPHLVPAYDIFLDPLSKKLHIAMEYMDGNLYQLMKARDHKPLDCSSVKSILFQILGGLEHIHDHSFFHRDIKPENILVSTSAPDTGSAFKRYSALVTPPSTPPAYSIKIADFGLARETHSRVPYTTYVSTRWYRAPEVLLRAGEYSAPVDIWAVGAMAVEIATLKPLFPGGNEVDQVWRVCEIMGSPGSWVNKHGNIVGGGEWKDGIKLAQKLGFSFPKMAPHSLETVLCAPHWPASLAQLVTWCLMWDPKVRPTSRQALEHEFFNDALDPLRPKSAATKTLGRKASTHIGATDGSDGIPTLTTKTSSWFRKSLGPRDNSAPSVPEYAQVSHTSSPRPTPAPSVPLESTASSKQARPGATKRATWTNGASTAAPIPILPSIRPISPLPDASVAQASVRRTEQPDERPGKKIGRQLSVNSQGNHYAELHRQEAERALNGASGLKSPTGSQRESFFSHLRKRARRFSGKPSGLASPTAEDMEANVGCAPWTTNRQSIPDAQAIAPTAADPSVDPNFAELDRALQSVRYSLDATAGAMPTQPKPPVKMASNPALKRHHSLPYGKEELSVVNRTRRSVKQAPSNIRYETPCEEDELLDEAIASAHQAVTRLDNGITQPARPHLPHVTSEPTYNVPYLTPSPSKDHMAVDFVANDCTPSKPVNIPAIRAQDKAVVNPQWPTPPYDENDWASGVAASIFATQAAFR"
+```
+
+
+### Alignment
+
+*Here is the alignment I obtained after running the above 7 proteins through MUSCLE at EBI (labeled by species), displayed in a code chunk because PDF formatting was giving me issues*
+
+```{r}
+"
+Zymoseptoria        LLRRGSCIGCSWRASVLVVVYGGWVGLVSNAVRKRVVTLQWLLNYAVRRLPSLLSRVRGG
+Elasticomyces       -----------------VASHGNHYADAHRHEAEQALN----------------------
+Zymoseptoria_br     -----------------VNSQGNHYAEIHRQEAERALV----------------------
+Ophiocordyceps      ------------------------------QEAERALS----------------------
+Septoria            -----------------VNSQGNHYAELHRQEAERALN----------------------
+Zasmidium           -----------------VNSQGNHYADIHRQEAERALT----------------------
+Fulvia              -----------------VNSQGNHYADMHRQEAERALT----------------------
+                                                           
+Zymoseptoria        IQAVSYTLQCTIQLSEIGVRIGCGRRDRVGVEGGLFVSSPRNAPSAGFHSIHRCDDTVAA
+Elasticomyces       -----------------------------GRNG---LASPTSSQRGSFFAHLRKRARRLS
+Zymoseptoria_br     -----------------------------GASA---LKSPTGSQRESFFSHLRKRARRLS
+Ophiocordyceps      -----------------------------GANG---RKSPTGTLLESFFSHLRKRARRLS
+Septoria.           -----------------------------GASG---LKSPTGSQRESFFSHLRKRARRFS
+Zasmidium           -----------------------------GANG---LKSPTGSQRESFFSHLRKRARRLS
+Fulvia              -----------------------------GATG---LQSPTGSQRESFFSHLRKRARRLS
+
+Zymoseptoria        GKSSRPLAQMREEAFSLAASRLESACANQSTLSFLPVNFGVVIALVDLSSRTPCGEMRVH
+Elasticomyces       GRNQAPVSPSVDD---------------------IEASAG-------------CAP----
+Zymoseptoria_br     GRNSGVITPSMDA---------------------METNAG-------------CVP----
+Ophiocordyceps      GRNQGPMSPGAED---------------------LEANAG-------------CAP----
+Septoria            GKPSGLASPTAED---------------------MEANVG-------------CAP----
+Zasmidium           GRNQGPMSPGAED---------------------IEASVG-------------CAP----
+Fulvia              GRNSGPMSPSAED---------------------AEANVG-------------CAP----
+
+Zymoseptoria        DFVENSSSSSGVLYRLLVACFSARRGIRWLGWSCVRREEASGDASMMVAQLRGSASLVES
+Elasticomyces       -------------------------------WAS-NRQSMAIE-----------------
+Zymoseptoria_br     -------------------------------WAA-NKQPVF-D-----------------
+Ophiocordyceps      -------------------------------WSS-NRGSIQ-E-----------------
+Septoria            -------------------------------WTT-NRQSIP-D-----------------
+Zasmidium           -------------------------------WSTNNRGSIQ-E-----------------
+Fulvia              -------------------------------WASNNRQSVQ-E-----------------
+
+Zymoseptoria        RSRRHPGCIVHFAVHDPAQRNWGLMTDRLRQTRSSGCRRWFVCQPKERTQRWFPHPLKVH
+Elasticomyces       -----SLAITTHATDPSSDPNFAELDRALQNVRYSLDAGSYSNNNVQK------PVQKV-
+Zymoseptoria_br     -----THSVASAAADPSSDPNFAELDRALQSVRYSLDAAANATQQARK------PTNRV-
+Ophiocordyceps      -----PQPIEAVASDPSSDPNFAELDRALQNVRYSLDATANTSNNQPK------HPTKM-
+Septoria            -----AQAIAPTAADPSVDPNFAELDRALQSVRYSLDATAGAMPTQPK------PPVKM-
+Zasmidium           -----PQPIAPAAADPSTDPNFAELDRALQNVRYSLDAAANPANMQPK------HPTKM-
+Fulvia              -----PQSIASVAVDPSSDPNFAELDRALQNVRYSLDAAAGAANPQPK------QPTKM-
+
+Zymoseptoria        LSCGRKVFSPSCADERRSFLFGCQSVTERLRQPEHAQLPAGEFRRSDCPVSLIIVXENAV
+Elasticomyces       ---------PSNPMLKR-----------------HHSLPFGQDERISPVPAVNGPISSRT
+Zymoseptoria_br     ---------VSNPSLKR-----------------HHSLPHGVDDKTQ-------ANHRIP
+Ophiocordyceps      ---------ASNPSLKR-----------------HQSSHSG-------------------
+Septoria            ---------ASNPALKR-----------------HHSLPYGKEEL---------SVVNRT
+Zasmidium           ---------PSNQSLKR-----------------HHSLPYGKEEIMSQT---GGSTSNRT
+Fulvia              ---------ASNPTLKR-----------------HHSVPCSKEEVTSNP-----SMANRT
+       
+Zymoseptoria        RRDALSSLRREFFFFVGGLVSAARGVLQCSSWYTVVGLVLCLTPGSEWRFNDGCSTTRFV
+Elasticomyces       RRS------------------------------------VRQAPHPGHRYETPDEEEELL
+Zymoseptoria_br     RRA------------------------------------LKHATSS--RYETPDEEEELL
+Ophiocordyceps      ------------------------------------------------------------
+Septoria            RRS------------------------------------VKQAPSN-IRYETPCEEDELL
+Zasmidium           RRS------------------------------------LRHAPSS--RYETPCEEDELL
+Fulvia              RRS------------------------------------LRHAPSS--RYETPCEEDELL
+                                                                                
+Zymoseptoria        GFLACVAFAAASRLYRTLCSARSSSAKLGSDDGSAAADAIEWVSKV--VCLLAAQGTHPA
+Elasticomyces       DEVLASAHRAARRLDRYIQQDNSPLPSVTSQQERARPPVQQVTSDP--GCFVPYLTPSPS
+Zymoseptoria_br     DEVMTSAHLAARRL---------------DNEQLSRPPLPHVISEPVTVYTAPYLTPSHS
+Ophiocordyceps      --------------------------------------------------------PAPS
+Septoria            DEAIASAHQAVTRL-------------DNGITQPARPHLPHVTSEP--TYNVPYLTPSPS
+Zasmidium           DEALASVHAAATRL------DKGTS-NVAGTYQPSRPPIGHVTSEP--VYPAPYLTPSHS
+Fulvia              DEALSNAHQAAQNL------DNAPSMNTTATYQPARPLLPQAISEP--AYAAPYLTPSPS
+
+Zymoseptoria        LVSIASI
+Elasticomyces       KDRNG--
+Zymoseptoria_br     KDQMSLD
+Ophiocordyceps      RKP----
+Septoria            KDHMAVD
+Zasmidium           KDQMNVT
+Fulvia              KDQMNIS
+"
+```
+
+
+# Question 6
+
+Given the alignment above, I can now create a phylogenetic tree using the EBI's Simple Phylogeny tool. 
+
+![Phylogenetic tree for various fungal proteins](final_phylo_tree.png){width=60% height=auto}
+
+
+# Question 7
+
+To generate a heatmap, the msa must be in fasta format. One of the MUSCLE outputs is 'the alignment in FASTA format converted by Seqret', so I used that. 
+
+```{r}
+library(bio3d)
+
+# Read multiple sequence alignment into R
+
+msa <- read.fasta("finalseq.fasta")
+
+# Calculate sequence identity matrix
+
+seq_id_m <- seqidentity(msa)
+```
+
+```{r}
+library(pheatmap)
+
+#Generate a heatmap of the msa (nicer enhancements courtesy of ChatGPT)
+
+idm_percent <- seq_id_m * 100
+rownames(idm_percent) <- substr(msa$id, 1, 15)
+colnames(idm_percent) <- substr(msa$id, 1, 15) #shortening the labels 
+
+pheatmap(idm_percent,
+         display_numbers = TRUE,       # show exact % in each cell
+         number_format = "%.1f",       # format: 1 decimal place
+         color = colorRampPalette(c("aquamarine", "darkolivegreen4"))(100),  # color gradient
+         clustering_distance_rows = "euclidean",
+         clustering_distance_cols = "euclidean",
+         main = "Sequence Identity (%)",
+         fontsize = 8,
+         border_color = NA)            # cleaner look without gridlines
+```
+
+
+**Quick note:** because the sequence of my novel protein is quite long (over 2000 characters), some shortening is needed before it can be processed by many of the tools that I'll be using going forward. 
+
+I was unsure of the best way to shorten my sequence, so I asked ChatGPT to do it for me. It identified a central 1000-amino acid segment that avoids the N-terminal signal peptide and C-terminal tail, which are less structured and may not be essential for the core function.
+
+The resulting novel sequence, printed below, will be saved as "zymo_novel". 
+
+```{r}
+zymo_novel <- "VITPSMDAMETSAGCVPWAANKQTTFDTHSIASAAADPSSDPNFAELDRALQSVRYSLDAAANATQQARKPTNRVVEQPSLKRHHSLPHGVRHKTNPTTVYHDEHSTPRAADTRPPTKKKNSRRSHELSASRRTAFSXDNYQSTHRAITTPKFTGRKLSVLWLAQALSSHRLAAKEKASSLICARGREDFPAATQVSSHLQWMLWKPALGAFLGLLTNKPPSTPTRSRLPQPIRHQTPISLSWIVHCKVYDTAWMPPRTRLNKLGSLRTALSNHHSVTTRFLTALDTRPTQPPYTTTSTEARHEQPIQDPRRRRRILDEVMNSAHLAARRSRTIISQLTGQSLRRNSPAGSACSGWRKRSQVTDWQPKRKLLLSSAQEGEKTFRPQLRCHHTFNGCYGNQRWVRSLGCQTNHLRHPLDRVCRSRSVIRPQFRAGSCTAKCTIQPGCRRERDSTSEAYEPRSATIIEASPLASSRRTQDQPNHRIPRRALKHATSSRYKTPDEEEEFSTKSTQRISPHGVLXRERRAARCAEFMTSSRILLLRRGSCIGCSWRASVLVVVYGGWVGLVSNAVRKRVVTLQWLLNYAVRRLPSLLSRVRGGIQAVSYTLQCTIQLSEIGVRIGCGRRDRVGVEGGLFVSSPRNAPSAGFHSIHRCDDTVAAGKSSRPLAQMREEAFSLAASRLESACANQSTLSFLPVNFGVVIALVDLSSRTPCGEMRVHDFVENSSSSSGVLYRLLVACFSARRGIRWLGWSCVRREEASGDASMMVAQLRGSASLVESRSRRHPGCIVHFAVHDPAQRNWGLMTDRLRQTRSSGCRRWFVCQPKERTQRWFPHPLKVHLSCGRKVFSPSCADERRSFLFGCQSVTERLRQPEHAQLPAGEFRRSDCPVSLIIVXENAVRRDALSSLRREFFFFVGGLVSAARGVLQCSSWYTVVGLVLCLTPGSEWRFNDGCSTTRFVGFLACVAFAAASRLYRTLCSARSSSAKLGSDDGSAAADAIEWVSKVVCLLAAQGTHPALVSIASIEGVMTPELRPESLLALLRREKKLSLWLPVGDLRALAPTRARSASCRISALPCELTDN"
+```
+
+
+# Question 8
+
+I am going to try to create a consensus for all my aligned sequences (msa), using the Bio3d package `consensus()`. 
+
+```{r}
+cons <- consensus(msa)
+```
+
+Because this sequence appears to have a lot of gaps in it, I will use the protein sequences that I aligned instead. I have saved them as text in some of the code chunks above. 
+
+I will use the `blast.pdb()` function to search the seven fungal protein sequences against the pdb database. 
+
+
+```{r}
+# blast.pdb(zymo_novel) yielded no results
+
+# blast.pdb(ophiocordyceps) yielded no results
+
+# blast.pdb(zasmidium) 
+```
+
+![pdb match 1, 7W5C](7w5c.jpeg){width=50% height=auto}
+
+**Sequence details**
+
+PDB ID: 7W5C
+
+E Value: 6.985e-33
+
+Experimental technique: X-RAY DIFFRACTION
+
+Resolution: 2.20 Å
+
+Source organism: Arabidopsis thaliana
+
+% identity: 34%
+
+
+```{r}
+# blast.pdv(fulvia)
+```
+
+![pdb match 2, 7E75](7e75.jpeg){width=50% height=auto}
+
+**Sequence details**
+
+PDB ID: 7E75
+
+E Value: 2.141e-28
+
+Experimental technique: X-RAY DIFFRACTION
+
+Resolution: 2.48 Å
+
+Source organism: Homo Sapiens
+
+% identity: 34%
+
+
+```{r}
+# blast.pdb(z_brevis)
+```
+
+![pdb match 3, 7NJ0](7nj0.jpeg){width=50% height=auto}
+
+**Sequence details**
+
+PDB ID: 7NJ0
+
+E Value: 1.682e-40
+
+Experimental technique: ELECTRON MICROSCOPY
+
+Resolution: 3.60 Å
+
+Source organism: Homo Sapiens
+
+% identity: 34%
+
+
+```{r}
+# blast.pdb(elasticomyces) yielded no results
+
+# blast.pdb(septoria) yielded no results with a higher identity score than those above
+```
+
+
+# Question 9
+
+I will run "zymo_novel" through AlphaFold. 
+
+It took a couple hours, but my output included several files that were saved to my project directory.
+
+I then ran "/test_62382/test_62382_unrelaxed_rank_001_alphafold2_ptm_model_2_seed_000.pdb" through the online Mol* viewer (the conserved regions are rendered in spacefill):
+
+![Final Unknown Protein Structure- colored by PLDDT confidence ](finalfinalfinalprotein.png)
+
+Here it is without the spacefill, so the PLDDT coloring can be seen more clearly:
+
+![Final Protein Structure (no spacefill)](no.spacefill.png){width=50% height=auto}
+
+# Question 10
+
+(i) I attempted to use the CASTPfold server to predict binding sites in my protein, but got the following result:
+
+![CASTPfold for my novel protein](no_pockets.png){width=80% height=auto}
+
+So, unfortunately my protein appears to have no small molecule binding sites.
+
+(ii) I then performed a CHEMBEL "target" search of my novel sequence. The resulting list consisted of 7 targets. I decided to focus on targets 4 and 5 (shown below) because they have the highest percent identity. 
+
+![My CHEMBL search](CHEMBLsearch1.png){width=80% height=auto}
+
+Target 4 appears to have the most useful data, as it has a defined compound that is effective against it, called Ribavirin. 
+
+![Details about Ribavirin](ribavirin.png){width=80% height=auto}
+
+This compound functions as an RNA polymerase inhibitor. 
+
+(iii) Overall, I do not believe my protein is druggable. My sequence is very long, and it was cut down so alphafold could process it. The resulting predicted structure did not have many conserved regions that I could use as starting points for further research. My CASTPfold search also did not yield any pockets. My CHEMBL searches yielded interesting results, but the highest percent identity listed was 47.1%, which does not place much confidence in the results. Perhaps if the whole sequence was run though a server with the capability to process it, a more accurate structure could be predicted. 
+
+
