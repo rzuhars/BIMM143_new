@@ -29,11 +29,11 @@ This is my classwork from S25 in my [UCSD bioinformatics class](https://bioboot.
 
 16 [UNIX](https://github.com/rzuhars/BIMM143_new/blob/main/class16/class16homework.md)
 
-17 Analyzing sequencing data in the cloud - no associated document
+17 [Analyzing sequencing data in the cloud](https://github.com/rzuhars/BIMM143_new/blob/main/class17/Class17hw.qmd)
 
 18 [Pertussis mini project](https://github.com/rzuhars/BIMM143_new/blob/main/class18/class18.md)
 
-19 Cancer mutation mini project - no associated document
+19 [PDF Cancer mutation mini project](https://github.com/rzuhars/BIMM143_new/blob/main/class19/class%2019.pdf)
 
 [Gene Project](https://github.com/rzuhars/BIMM143_new/tree/main/geneproject)
 
