@@ -1,0 +1,91 @@
+---
+title: "Class 17 Downstream Analysis"
+author: "Renee Zuhars (PID: A17329856)"
+format: pdf
+toc: TRUE
+---
+
+# Downstream Analysis
+
+Now that we are back on our laptop, we can use R and Bioconductor tools to further explore this large scale dataset.
+
+There is an R function called `tximport()` in the *tximport* package, which enables straightforward import of Kallisto results.
+
+```{r}
+library(tximport)
+
+# setup the folder and filenames to read
+folders <- dir(pattern="SRR21568*")
+samples <- sub("_quant", "", folders)
+files <- file.path( folders, "abundance.h5" )
+names(files) <- samples
+
+txi.kallisto <- tximport(files, type = "kallisto", txOut = TRUE)
+```
+```{r}
+head(txi.kallisto$counts)
+```
+
+These are the estimated transcript counts for each sample in R. 
+
+We can see how many transcripts we have for each sample here:
+
+```{r}
+colSums(txi.kallisto$counts)
+```
+
+And how many transcripts are detected in at least one sample:
+
+```{r}
+sum(rowSums(txi.kallisto$counts)>0)
+```
+
+```{r}
+# Before subsequent analysis, we might want to filter out those annotated transcripts with no reads:
+
+to.keep <- rowSums(txi.kallisto$counts) > 0
+kset.nonzero <- txi.kallisto$counts[to.keep,]
+
+# And those with no change over the samples:
+
+keep2 <- apply(kset.nonzero,1,sd)>0
+x <- kset.nonzero[keep2,]
+```
+
+
+## Principal Component Analysis
+
+We will now perform a PCA of the transcriptomic profiles of these samples.
+
+```{r}
+pca <- prcomp(t(x), scale=TRUE)
+
+summary(pca)
+```
+
+Now we can use the first two principal components as a coordinate system for visualizing the summarized transcriptomic profiles of each sample:
+
+```{r}
+plot(pca$x[,1], pca$x[,2],
+     col=c("blue","blue","red","red"),
+     xlab="PC1", ylab="PC2", pch=16)
+```
+
+A similar plot using ggplot:
+
+```{r}
+library(ggplot2)
+
+df <- data.frame(pca$x)
+
+df$Group <- factor(c("Group1", "Group1", "Group2", "Group2"))
+
+ggplot(df, aes(x = PC1, y = PC2, color = Group)) +
+  geom_point(size = 2) +
+  labs(title = "PCA Plot", x = "PC1", y = "PC2") +
+  theme_bw() +
+  labs(title = "PCA Plot", x = "PC1", y = "PC2")
+```
+
+The plot makes it clear that PC1 separates the two control samples (SRR2156848 and SRR2156849) from the two enhancer-targeting CRISPR-Cas9 samples (SRR2156850 and SRR2156851). PC2 separates the two control samples from each other, and PC3 separates the two enhancer-targeting CRISPR samples from each other. This could be investigated further to see which genes result in these separation patterns. It is also at least slightly reassuring, implying that there are considerable differences between the treated and control samples.
+
